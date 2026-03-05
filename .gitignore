@@ -19,6 +19,9 @@ obj/
 TestResults/
 coverage/
 
+# Screenshots
+screenshots/
+
 # OS
 .DS_Store
 Thumbs.db
