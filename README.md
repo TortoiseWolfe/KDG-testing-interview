@@ -18,6 +18,18 @@ bash scripts/seed.sh
 | API     | http://localhost:5000/api/customers |
 | Swagger | http://localhost:5000/swagger |
 
+## Setup
+
+```bash
+# Authenticate GitHub CLI (needed for PRs and issues)
+gh auth login
+```
+
+```bash
+# Launch the interview workspace (3 tmux windows: claude, logs, test)
+bash scripts/interview-tmux.sh
+```
+
 ## Interview Workflow
 
 ### Phase 0 — Paste the assignment
@@ -29,6 +41,12 @@ Save interview specs into the `context/` folder so Claude can read them:
 cp ~/Downloads/assignment.pdf context/
 # or create a markdown file
 nano context/assignment.md
+```
+
+Then prime Claude with project context:
+
+```
+/prime-interview
 ```
 
 ### Phase 1 — Decompose the project
@@ -66,6 +84,9 @@ docker compose --profile test run --rm client-tests
 
 # Load test (10 VUs, 30s)
 docker compose --profile test run --rm k6 run /scripts/script.js
+
+# E2E smoke test (Playwright)
+docker compose --profile test run --rm e2e-tests
 ```
 
 ### Phase 5 — Ship it
