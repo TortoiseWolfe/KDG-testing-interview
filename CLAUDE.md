@@ -17,7 +17,9 @@ docker compose logs -f api    # view logs
 
 ### Git workflow
 - **Never commit directly to main.** Always use feature branches.
-- Use `/ship` to commit, merge to main, and push.
+- **Never merge to main locally.** Use PRs for all merges to main.
+- `/ship` must: commit, push the feature branch, then open a PR via `gh pr create`.
+- After PR is approved and merged on GitHub, delete the local branch.
 - Conventional commits: feat/fix/docs/refactor/test/chore
 
 ### Interview specs

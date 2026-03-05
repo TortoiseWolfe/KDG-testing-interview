@@ -74,7 +74,7 @@ docker compose --profile test run --rm k6 run /scripts/script.js
 /ship
 ```
 
-Commits, merges to main, and pushes.
+Commits, pushes the feature branch, and opens a PR for review.
 
 ## Useful Commands
 
