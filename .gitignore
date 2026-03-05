@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+bin/
+obj/
+
+# Environment
+.env
+
+# IDE
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Test output
+TestResults/
+coverage/
+
+# OS
+.DS_Store
+Thumbs.db
