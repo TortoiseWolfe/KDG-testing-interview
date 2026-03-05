@@ -1,6 +1,31 @@
-@KdgApi_HostAddress = http://localhost:5257
+@host = http://localhost:5000
 
-GET {{KdgApi_HostAddress}}/weatherforecast/
+### List all customers
+GET {{host}}/api/customers
 Accept: application/json
 
-###
+### Get customer by ID
+GET {{host}}/api/customers/1
+Accept: application/json
+
+### Create customer
+POST {{host}}/api/customers
+Content-Type: application/json
+
+{
+  "name": "Jane Doe",
+  "email": "jane@example.com"
+}
+
+### Update customer
+PUT {{host}}/api/customers/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Jane Smith",
+  "email": "jane@example.com"
+}
+
+### Delete customer
+DELETE {{host}}/api/customers/1
