@@ -33,4 +33,14 @@ describe('CustomerList', () => {
       expect(screen.getByText('John Smith')).toBeInTheDocument()
     })
   })
+
+  it('renders error message when fetch fails', async () => {
+    vi.spyOn(globalThis, 'fetch').mockRejectedValue(new Error('Network failure'))
+
+    render(<CustomerList />)
+
+    await waitFor(() => {
+      expect(screen.getByText('Error: Network failure')).toBeInTheDocument()
+    })
+  })
 })

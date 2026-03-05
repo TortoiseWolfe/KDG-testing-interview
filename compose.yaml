@@ -83,5 +83,17 @@ services:
     profiles:
       - test
 
+  e2e-tests:
+    image: mcr.microsoft.com/playwright:v1.52.0-noble
+    working_dir: /e2e
+    volumes:
+      - ./e2e:/e2e
+    network_mode: "host"
+    entrypoint: ["npx", "playwright", "test"]
+    depends_on:
+      - client
+    profiles:
+      - test
+
 volumes:
   pgdata:
