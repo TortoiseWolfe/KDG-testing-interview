@@ -42,6 +42,9 @@ docker compose --profile test run --rm client-tests
 
 # Load test (k6 — 10 VUs, 30s)
 docker compose --profile test run --rm k6 run /scripts/script.js
+
+# E2E smoke test (Playwright)
+docker compose --profile test run --rm e2e-tests
 ```
 
 ## Key Paths

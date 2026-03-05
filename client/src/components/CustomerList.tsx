@@ -5,15 +5,17 @@ import type { Customer } from '../types/Customer'
 export function CustomerList() {
   const [customers, setCustomers] = useState<Customer[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     getCustomers()
       .then(setCustomers)
-      .catch(console.error)
+      .catch((err) => setError(err.message))
       .finally(() => setLoading(false))
   }, [])
 
   if (loading) return <p>Loading...</p>
+  if (error) return <p>Error: {error}</p>
 
   return (
     <table>
