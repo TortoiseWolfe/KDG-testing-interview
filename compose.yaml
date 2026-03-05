@@ -75,5 +75,13 @@ services:
     profiles:
       - test
 
+  k6:
+    image: grafana/k6:latest
+    volumes:
+      - ./loadtest:/scripts
+    network_mode: "host"
+    profiles:
+      - test
+
 volumes:
   pgdata:
